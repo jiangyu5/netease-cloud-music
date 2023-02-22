@@ -1,0 +1,58 @@
+:root {
+  --main-1: #fff;
+  --main-2: #f7f7f7;
+  --main-3: #f4f4f4;
+  --main-4: #dedede;
+  --main-5: #ccc;
+  --main-6: #9b9b9b;
+  --main-7: #666;
+  --main-8: #333;
+  --main-9: #242424;
+  --main-10: #111;
+  --main-11: #000;
+
+  --mid-1: #f0483b;
+  --mid-2: #e60026;
+  --mid-3: #c20c0c;
+  --mid-4: #c10d0c;
+  --mid-5: #9b0909;
+
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  font-size: 14px;
+
+  color-scheme: light dark;
+  color: var(--main-1);
+  background-color: var(--main-9);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+div,
+nav,
+ul {
+  box-sizing: border-box;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: var(--main-9);
+    background-color: var(--main-1);
+  }
+}
