@@ -28,6 +28,7 @@ import AppFooter from "./components/AppFooter/index.vue";
   }
 }
 
+
 @media (max-width: 768px) {
   #app .app-main {
     height: calc(100vh - var(--app-footer-height) - var(--app-nav-height));

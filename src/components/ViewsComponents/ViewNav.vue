@@ -12,7 +12,6 @@ const props = defineProps({
       <div class="p-2" v-for="(nav, index) in props.navs" :key="index">
         <router-link
           class="nav-link link-light"
-          :class="index == 0 ? 'text-danger' : ''"
           :to="nav.url"
           style="font-size: 0.9em"
           >{{ nav.title }}
@@ -59,4 +58,8 @@ const props = defineProps({
   </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+.router-link-active {
+  color: var(--mid-1) !important;
+}
+</style>
