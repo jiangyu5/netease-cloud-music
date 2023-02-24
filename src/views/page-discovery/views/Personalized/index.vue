@@ -3,7 +3,7 @@ import axios from "axios";
 import PlayListPrivate from "../../../../components/ViewsComponents/PlayListPrivate.vue";
 import PlayListSingle from "../../../../components/ViewsComponents/PlayListSingle.vue";
 import PlayListSong from "../../../../components/ViewsComponents/PlayListSong.vue";
-import TopSlide from "../../components/TopSlide.vue";
+import TopSlide from "./components/TopSlide.vue";
 
 // 推荐歌单
 let cookie = localStorage.getItem("cookie");

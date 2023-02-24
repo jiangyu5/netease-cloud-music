@@ -1,13 +1,15 @@
 <script setup>
-
+import JingXuan from "./views/JingXuan/index.vue";
+import Loading from "@/components/Loading/index.vue";
 </script>
 
 <template>
-  <div class=''>
-
-  </div>
+  <Suspense>
+    <JingXuan />
+    <template #fallback>
+      <Loading />
+    </template>
+  </Suspense>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>

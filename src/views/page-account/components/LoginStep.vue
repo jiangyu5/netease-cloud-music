@@ -1,9 +1,8 @@
 <script setup>
-import { ref, computed, watch, onUnmounted } from "vue";
+import { ref, computed, watch, onUnmounted, nextTick } from "vue";
 import { useRouter } from "vue-router";
 import axios from "axios";
 
-import { setProfile } from "../index.js";
 
 const router = useRouter();
 
@@ -107,10 +106,11 @@ function watchQRStatus(key) {
     if (statusRes.code === 803) {
       // 这一步会返回cookie
       clearInterval(timer);
-
-      loginSucceed.value = true; // 登录状态改变
       localStorage.setItem("cookie", statusRes.cookie);
-      setProfile(statusRes.cookie); // 保存个人信息
+
+      nextTick(() => {
+        loginSucceed.value = true; // 登录状态改变
+      });
     }
   }, 3000);
 }

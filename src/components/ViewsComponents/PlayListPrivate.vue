@@ -1,8 +1,8 @@
 <script setup>
 import PlayListContainer from "./PlayListContainer.vue";
 
+// {picUrl, name}
 const props = defineProps(["title", "data"]);
-
 </script>
 
 <template>
@@ -24,7 +24,7 @@ const props = defineProps(["title", "data"]);
 
 <style scoped lang="less">
 .j-figure {
-    width: 30%;
+  width: 30%;
 
   @media (max-width: 992px) {
     width: 30%;

@@ -14,7 +14,7 @@ const routes = [
   routeMv,
   routeMy,
   routeFriends,
-  routeAccount,
+  routeAccount
 ];
 
 export default createRouter({

@@ -1,6 +1,9 @@
 <script setup>
 import PlayListContainer from "./PlayListContainer.vue";
-const props = defineProps(["title", "data"]);
+const props = defineProps(["title", "data", "direction"]);
+
+// data => array
+// {name, picUrl?,song:{artists:[{name}], sqMusic: null}
 
 // 歌手
 function getArtists(index) {
@@ -22,7 +25,8 @@ function getSQ(index) {
   <PlayListContainer :title="props.title">
     <div class="d-flex flex-row flex-wrap">
       <div
-        class="j-figure d-flex gap-0 align-items-center col-12 col-sm-6 figure position-relative"
+        :class="direction == 'column' ? 'col-md-12 py-2' : 'col-md-6'"
+        class="j-figure d-flex gap-0 align-items-center col-12 figure position-relative"
         v-for="(i, index) in props.data"
         :key="index"
       >
@@ -34,20 +38,21 @@ function getSQ(index) {
         >
         <!-- 图片 -->
         <img
+          v-if="i.picUrl"
           :src="i.picUrl"
           class="j-img d-block col-1 figure-img img-fluid my-2 me-2"
         />
         <!-- 歌名、歌手与专辑 -->
         <div class="d-flex flex-column figure-caption text-light">
-          <div>{{ i.name }}</div>
-          <div>
+          <div class="j-sing">{{ i.name }}</div>
+          <div class="d-flex align-items-center">
             <span
               v-if="getSQ(index)"
-              class="d-inline-block text-danger border border-2 border-danger rounded-1 px-1 fw-bold ms-0"
+              class="d-block text-danger border border-2 border-danger rounded-1 px-1 fw-bold ms-0"
               style="transform: scale(0.6)"
               >{{ getSQ(index) }}</span
             >
-            <span>
+            <span class="j-singer text-secondary">
               {{ getArtists(index) }}
             </span>
           </div>
@@ -66,5 +71,26 @@ function getSQ(index) {
 .j-img {
   min-width: 45px;
   width: 10%;
+}
+
+.col-md-12 .j-sing,
+.col-md-12 .j-singer {
+  display: inline-block;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 220px;
+
+  @media (min-width: 576px) {
+    width: 200px;
+  }
+}
+
+.col-md-12 .j-sing {
+  width: 230px;
+
+  @media (min-width: 576px) {
+    width: 230px;
+  }
 }
 </style>

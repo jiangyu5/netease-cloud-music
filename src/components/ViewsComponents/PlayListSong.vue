@@ -1,7 +1,17 @@
 <script setup>
 import PlayListContainer from "./PlayListContainer.vue";
+import { usePlaylistStore } from "@/store/detail.js";
 
-const props = defineProps(["title", "data"]);
+
+// data = >[{}]
+// {id, playcount,picUrl, creator: {nickname, vipType,},  }
+const props = defineProps(["title", "data", 'showCreator']);
+const store = usePlaylistStore();
+const { playlistId } = store;
+
+function showPlayList(index) {
+  playlistId(props.data[index].id);
+}
 
 function getPlayCount(playCount) {
   const unit = ["", "万", "亿", "兆", "京"];
@@ -27,12 +37,13 @@ function getNumber(count, n = 0) {
         class="j-figure figure col-3 col-sm-2 position-relative"
         v-for="(i, index) in props.data"
         :key="index"
+        @click="showPlayList(index)"
       >
         <div class="position-relative">
           <img :src="i.picUrl" class="d-block figure-img img-fluid" />
           <!-- 左下角作者 -->
           <div
-            v-if="i.creator"
+            v-if="i.creator && props.showCreator"
             class="position-absolute start-0 bottom-0 px-2 d-flex align-items-center"
             style="transform: scale(0.8) translateX(-15%)"
           >
@@ -69,6 +80,7 @@ function getNumber(count, n = 0) {
 
 <style scoped lang="less">
 .j-figure {
+  cursor: pointer;
   overflow: hidden;
   @media (max-width: 1024px) {
     width: 20%;

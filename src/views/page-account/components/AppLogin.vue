@@ -1,8 +1,18 @@
 <script setup>
-import { ref } from "vue";
+import { ref, defineAsyncComponent } from "vue";
 import LoginStep from "./LoginStep.vue";
-import LoginSucceed from "./LoginSucced.vue";
+// import LoginSucceed from "./LoginSucceed.vue";
 import axios from "axios";
+import Loading from "../../../components/Loading/index.vue";
+
+
+
+
+const LoginSucceed = defineAsyncComponent({
+  loader: () => import("./LoginSucceed.vue"),
+  loadingComponent: Loading,
+  delay: 200,
+});
 
 // # 登录状态
 const loginSucceed = ref(false);

@@ -1,10 +1,43 @@
-# Vue 3 + Vite
+# 简版 网易云音乐
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+## 介绍
 
-## Recommended IDE Setup
+- 仅作为练习使用；
+- api 来源 [网易云 api](https://github.com/Binaryify/NeteaseCloudMusicApi)，其需要 NodeJS 12+ 环境。
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+## 进度
 
 
-[api](https://neteasecloudmusicapi.vercel.app/)
+
+### 发现页
+
+
+
+## Gif 预览
+
+
+
+
+
+## 本地预览
+
+### 克隆
+
+
+
+### 安装 - api
+
+```shell
+
+
+$ git clone git@github.com:Binaryify/NeteaseCloudMusicApi.git
+$ cd NeteaseCloudMusicApi
+$ npm install
+```
+
+### 运行 - api
+
+
+
+### 本地启动
+
