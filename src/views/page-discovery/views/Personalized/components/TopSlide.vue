@@ -69,7 +69,6 @@ onUnmounted(() => {
         :class="aniData[index].name"
       >
         <img :src="d.pic" alt="" />
-        {{ index + 1 }}
         <span class="j-type-title">{{ d.typeTitle }}</span>
       </div>
     </div>
