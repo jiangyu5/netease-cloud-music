@@ -5,14 +5,12 @@ import Loading from "../../components/Loading/index.vue";
 
 <template>
   <Transition>
-    <KeepAlive>
-      <Suspense>
-        <AppLogin />
-        <template #fallback>
-          <Loading />
-        </template>
-      </Suspense>
-    </KeepAlive>
+    <Suspense>
+      <AppLogin />
+      <template #fallback>
+        <Loading />
+      </template>
+    </Suspense>
   </Transition>
 </template>
 

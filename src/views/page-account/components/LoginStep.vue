@@ -1,22 +1,13 @@
 <script setup>
-import { ref, computed, watch, onUnmounted, nextTick } from "vue";
+import { ref, computed, watch, onUnmounted } from "vue";
 import { useRouter } from "vue-router";
 import axios from "axios";
-
+import { useLoginStore } from "../../../store/login";
 
 const router = useRouter();
-
 // # 登录状态
-const props = defineProps(["loginSucceed"]);
-const emits = defineEmits(["update:loginSucceed"]);
-const loginSucceed = computed({
-  get() {
-    return props.loginSucceed;
-  },
-  set(value) {
-    emits("update:loginSucceed", value);
-  },
-});
+const store = useLoginStore();
+const { changeStatus } = store;
 
 // # 选择的登录方式
 const isPassword = ref(true); // 账号密码
@@ -107,10 +98,7 @@ function watchQRStatus(key) {
       // 这一步会返回cookie
       clearInterval(timer);
       localStorage.setItem("cookie", statusRes.cookie);
-
-      nextTick(() => {
-        loginSucceed.value = true; // 登录状态改变
-      });
+      changeStatus(true);
     }
   }, 3000);
 }

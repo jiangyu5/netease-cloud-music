@@ -2,17 +2,11 @@
 import axios from "axios";
 import { reactive, onUnmounted } from "vue";
 
-let data = localStorage.getItem("banners");
-if (data) {
-  data = JSON.parse(data);
-} else {
-  let res = await axios("/api/banner?type=3");
-  data = res.data.banners.map((e) => {
-    const { typeTitle, pic, song } = { ...e };
-    return { typeTitle, pic, song };
-  });
-  localStorage.setItem("banners", JSON.stringify(data));
-}
+let res = await axios("/api/banner?type=3");
+const data = res.data.banners.map((e) => {
+  const { typeTitle, pic, song } = { ...e };
+  return { typeTitle, pic, song };
+});
 
 // 动画
 let timer;

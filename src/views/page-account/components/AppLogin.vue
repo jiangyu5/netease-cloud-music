@@ -1,48 +1,24 @@
 <script setup>
-import { ref, defineAsyncComponent } from "vue";
 import LoginStep from "./LoginStep.vue";
-// import LoginSucceed from "./LoginSucceed.vue";
-import axios from "axios";
-import Loading from "../../../components/Loading/index.vue";
-
-
-
-
-const LoginSucceed = defineAsyncComponent({
-  loader: () => import("./LoginSucceed.vue"),
-  loadingComponent: Loading,
-  delay: 200,
-});
+import LoginSucceed from "./LoginSucceed.vue";
+import { useLoginStore } from "@/store/login.js";
+import { storeToRefs } from "pinia";
 
 // # 登录状态
-const loginSucceed = ref(false);
+const store = useLoginStore();
+const { status } = storeToRefs(store);
+const { initStatus } = store;
 
-async function loginStatusRes() {
-  let cookie = localStorage.getItem("cookie");
-  if (!cookie) return null;
-  let res = await axios({
-    url: `/api/login/status`,
-    method: "post",
-    data: {
-      cookie,
-    },
-  });
-  return res;
-}
+await initStatus();
 
-let res = await loginStatusRes();
-if (res) {
-  if (res.data.data.code == 200) {
-    loginSucceed.value = true;
-  } else {
-    loginSucceed.value = false;
-  }
-}
 </script>
 
 <template>
-  <LoginSucceed v-if="loginSucceed" />
-  <LoginStep v-else v-model:login-succeed="loginSucceed" />
+    <!-- 此处不加父节点会报错 -->
+  <div>
+    <LoginSucceed v-if="status" />
+    <LoginStep v-else />
+  </div>
 </template>
 
 <style scoped></style>
