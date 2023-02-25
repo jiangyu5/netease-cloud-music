@@ -1,6 +1,6 @@
 # 简版 网易云音乐
 
-![](./assets/imgs/01.png)
+![](assets/imgs/01.png)
 
 ## 介绍
 
@@ -14,9 +14,8 @@
 
 ## 视频预览
 
-<iframe src="//player.bilibili.com/player.html?aid=822488713&bvid=BV1Wg4y1H7zQ&cid=1024554571&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 
-> [B 站播放链接]( https://www.bilibili.com/video/BV1Wg4y1H7zQ/?share_source=copy_web&vd_source=54f35a86bfb772bf2716924cf109b851)
+ [B 站播放链接]( https://www.bilibili.com/video/BV1Wg4y1H7zQ/?share_source=copy_web&vd_source=54f35a86bfb772bf2716924cf109b851)
 
 
 
