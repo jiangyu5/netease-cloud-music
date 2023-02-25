@@ -4,6 +4,8 @@
 
 ## 介绍
 
+![](https://img.shields.io/badge/node-v12-blue)![](https://img.shields.io/badge/vue-v3-green)![](https://img.shields.io/badge/bootstrap-v5-blueviolet)
+
 - 仅作为练习使用；
 - 没有部署服务器，可通过视频、gif 预览效果，或者下载到本地启动 api；
 - api 来源 [网易云 api](https://github.com/Binaryify/NeteaseCloudMusicApi)，其需要 NodeJS 12+ 环境。
