@@ -2,6 +2,10 @@
 import PlayListContainer from "./PlayListContainer.vue";
 import { useRouter } from "vue-router";
 import { useCount } from "../../hook/useTools";
+import { useDetailStore } from "@/store/detail";
+
+const store = useDetailStore();
+const { detailsPush } = store;
 
 // data = >[{}]
 // {id, playcount,picUrl, creator: {nickname, vipType,},  }
@@ -10,14 +14,8 @@ const props = defineProps(["title", "data", "showCreator"]);
 const router = useRouter();
 
 function getDetail(index) {
-  router.push({
-    path: "./",
-    query: {
-      id: props.data[index].id,
-    },
-  });
+  detailsPush("playlist", props.data[index].id);
 }
-
 </script>
 
 <template>

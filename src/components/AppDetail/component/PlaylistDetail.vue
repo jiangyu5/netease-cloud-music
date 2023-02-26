@@ -2,7 +2,11 @@
 import axios from "axios";
 import PlaListSingle from "../../ViewsComponents/PlayListSingle.vue";
 import { useCount } from "@/hook/useTools.js";
+import { useDetailStore } from "../../../store/detail";
 import DetailContainer from "./DetailContainer.vue";
+
+const store = useDetailStore();
+const { detailsPush } = store;
 
 const props = defineProps(["id"]);
 let res = await axios(`/api/playlist/detail?id=${props.id}`);
@@ -65,7 +69,7 @@ const songList = tracks.map((el) => {
           <span class="iconfont icon-shoucang"></span>
           <div>{{ useCount(subscribedCount) }}</div>
         </div>
-        <div>
+        <div @click="detailsPush('comment', id)">
           <span class="iconfont icon-pinlun"></span>
           <div>{{ useCount(commentCount) }}</div>
         </div>

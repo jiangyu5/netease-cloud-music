@@ -8,7 +8,7 @@ import AppFooter from "./components/AppFooter/index.vue";
   <div class="container-fluid bg-dark text-light">
     <div class="row">
       <AppNav class="col-md-2 col-lg-1 order-3 order-md-1" />
-      <AppMain class="col-md-10 col-lg-11 order-1 order-md-2" />
+      <AppMain class="col-md-10 col-lg-10 order-1 order-md-2" />
       <AppFooter class="order-2 order-md-3" />
     </div>
   </div>
@@ -24,15 +24,15 @@ import AppFooter from "./components/AppFooter/index.vue";
 
   .app-main,
   .app-main .app-j-detail {
-    height: calc(100vh - var(--app-footer-height));
+    height: calc(100vh - var(--app-footer-height) - var(--app-nav-height));
     overflow-y: auto;
   }
 }
 
-@media (max-width: 768px) {
+@media (min-width: 768px) {
   #app .app-main,
   #app .app-main .app-j-detail {
-    height: calc(100vh - var(--app-footer-height) - var(--app-nav-height));
+    height: calc(100vh - var(--app-footer-height));
   }
 }
 </style>
