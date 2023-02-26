@@ -1,33 +1,23 @@
 <script setup>
 import PlayListContainer from "./PlayListContainer.vue";
-import { usePlaylistStore } from "@/store/detail.js";
-
+import { useRouter } from "vue-router";
+import { useCount } from "../../hook/useTools";
 
 // data = >[{}]
 // {id, playcount,picUrl, creator: {nickname, vipType,},  }
-const props = defineProps(["title", "data", 'showCreator']);
-const store = usePlaylistStore();
-const { playlistId } = store;
+const props = defineProps(["title", "data", "showCreator"]);
 
-function showPlayList(index) {
-  playlistId(props.data[index].id);
+const router = useRouter();
+
+function getDetail(index) {
+  router.push({
+    path: "./",
+    query: {
+      id: props.data[index].id,
+    },
+  });
 }
 
-function getPlayCount(playCount) {
-  const unit = ["", "万", "亿", "兆", "京"];
-  const [count, unitIndex] = getNumber(playCount);
-  return count.toFixed(1) + unit[unitIndex];
-}
-
-function getNumber(count, n = 0) {
-  if (count < 10000) {
-    return [count, n];
-  } else {
-    let willCount = count / 10000;
-    n++;
-    return getNumber(willCount, n);
-  }
-}
 </script>
 
 <template>
@@ -37,7 +27,7 @@ function getNumber(count, n = 0) {
         class="j-figure figure col-3 col-sm-2 position-relative"
         v-for="(i, index) in props.data"
         :key="index"
-        @click="showPlayList(index)"
+        @click="getDetail(index)"
       >
         <div class="position-relative">
           <img :src="i.picUrl" class="d-block figure-img img-fluid" />
@@ -70,7 +60,7 @@ function getNumber(count, n = 0) {
         >
           <span class="d-inline-block iconfont icon-main"></span>
           <span>
-            {{ getPlayCount(i.playCount || i.playcount) }}
+            {{ useCount(i.playCount || i.playcount) }}
           </span>
         </div>
       </figure>

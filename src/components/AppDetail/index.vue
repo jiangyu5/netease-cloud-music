@@ -1,14 +1,31 @@
 <script setup>
-import PlayListDetail from "./component/PlayListDetail.vue";
-import { usePlaylistStore } from "@/store/detail.js";
+import { watch, ref } from "vue";
+import { useRoute } from "vue-router";
+import CommentDetail from "./component/CommentDetail.vue";
+import PlayListDetail from "./component/PlaylistDetail.vue";
 
+const route = useRoute();
+const id = ref(null);
+watch(
+  () => route.query,
+  (q) => {
+    if (!q || q == {}) {
+      return;
+    }
+    id.value = q.id;
+  },
+  { immediate: true }
+);
 </script>
 
 <template>
-  <div class="app-j-detail-container col-12 col-sm-6 col-md-5">
+  <div class="app-j-detail-container col-12 col-sm-6 col-md-5" v-if="id">
     <Transition>
       <Suspense>
-        <PlayListDetail />
+        <div>
+          <!-- <PlayListDetail :id="id" /> -->
+          <!-- <CommentDetail :id="id" /> -->
+        </div>
       </Suspense>
     </Transition>
   </div>

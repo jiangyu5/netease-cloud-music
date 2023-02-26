@@ -90,8 +90,8 @@ onUnmounted(() => {
 
 <style scoped lang="less">
 .j-top-slid {
-  --pic-width: 417px;
-  --pic-height: 162.17px;
+  --pic-width: 566px;
+  --pic-height: 220px;
   @media (max-width: 768px) {
     --pic-width: 347.5px;
     --pic-height: 135.14px;

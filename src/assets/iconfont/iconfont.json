@@ -6,9 +6,37 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "10937697",
+      "name": "赞",
+      "font_class": "zan",
+      "unicode": "e62a",
+      "unicode_decimal": 58922
+    },
+    {
+      "icon_id": "3280425",
+      "name": "加入收藏",
+      "font_class": "shoucang",
+      "unicode": "e625",
+      "unicode_decimal": 58917
+    },
+    {
+      "icon_id": "4972287",
+      "name": "评论",
+      "font_class": "pinlun",
+      "unicode": "e7f5",
+      "unicode_decimal": 59381
+    },
+    {
+      "icon_id": "26847612",
+      "name": "分享",
+      "font_class": "fenxiang",
+      "unicode": "e65f",
+      "unicode_decimal": 58975
+    },
+    {
       "icon_id": "1718323",
       "name": "更多",
-      "font_class": "gegnduo",
+      "font_class": "gengduo",
       "unicode": "e600",
       "unicode_decimal": 58880
     },
