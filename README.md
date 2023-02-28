@@ -7,21 +7,19 @@
 ![](https://img.shields.io/badge/node-v12-blue)![](https://img.shields.io/badge/vue-v3-green)![](https://img.shields.io/badge/bootstrap-v5-blueviolet)
 
 - 仅作为练习使用；
-- 没有部署服务器，可通过视频、gif 预览效果，或者下载到本地启动 api；
+- 没有部署服务器，可通过gif 预览效果，或者下载到本地启动 api；
 - api 来源 [网易云 api](https://github.com/Binaryify/NeteaseCloudMusicApi)，其需要 NodeJS 12+ 环境。
 
+## 进度
 
-
-## 视频预览
-
-
- [B 站播放链接]( https://www.bilibili.com/video/BV1Wg4y1H7zQ/?share_source=copy_web&vd_source=54f35a86bfb772bf2716924cf109b851)
-
-
+- 全局右侧显示窗口完善中
+- 组件文件重新管理中
 
 ## 图片预览
 
 ![gif1](./assets/imgs/gif1.gif)
+
+![](./assets/imgs/gif3.gif)
 
 ![gif2](./assets/imgs/gif2.gif)
 

@@ -8,18 +8,18 @@ const { details } = storeToRefs(store);
 const { detailsBack } = store;
 
 const props = defineProps(["title"]);
-const detailStyle = computed(() => {
-  if (details.value.length == 1) {
-    return "col-12 col-md-6";
-  } else if (details.value.length > 1) {
-    return "col-12 col-md-6";
-  }
-  return "";
-});
+// const detailStyle = computed(() => {
+//   if (details.value.length == 1) {
+//     return "col-12 col-md-6";
+//   } else if (details.value.length > 1) {
+//     return "col-12 col-md-6";
+//   }
+//   return "";
+// });
 </script>
 
 <template>
-  <div class="app-j-detail col-12  bg-dark text-light" :class="detailStyle">
+  <div class="app-j-detail col-12 col-md-6 bg-dark text-light">
     <div
       class="text-center pb-2 pt-4 sticky-top clearfix text-bg-dark border-bottom border-secondary"
     >

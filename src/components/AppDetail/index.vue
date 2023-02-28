@@ -10,31 +10,28 @@ const store = useDetailStore();
 const { details } = storeToRefs(store);
 const components = { playlist: PlayListDetail, comment: CommentDetail };
 
-const containerClass = computed(() => {
-  if (details.value.length == 1) {
-    return "col-12 col-md-5";
-  } else if (details.value.length > 1) {
-    return "col-12 col-md-10";
-  }
-  return "";
-});
+// const containerClass = computed(() => {
+//   if (details.value.length == 1) {
+//     return "col-12 col-md-5";
+//   } else if (details.value.length > 1) {
+//     return "col-12 col-md-10";
+//   }
+//   return "";
+// });
 </script>
 
 <template>
   <!-- col-12 col-sm-6 col-md-5 -->
-  <div
-    class="app-j-detail-container bg-dark position-fixed end-0 top-0"
-    :class="containerClass"
-  >
+  <div class="app-j-detail-container bg-dark">
     <Suspense>
-      <!-- <TransitionGroup name="details"> -->
-      <component
-        v-for="detail in details"
-        :is="components[detail.detail]"
-        :id="detail.id"
-        :key="detail.detail + detail.id"
-      ></component>
-      <!-- </TransitionGroup> -->
+      <TransitionGroup name="details">
+        <component
+          v-for="detail in details"
+          :is="components[detail.detail]"
+          :id="detail.id"
+          :key="detail.detail + detail.id"
+        ></component>
+      </TransitionGroup>
       <template #fallback>
         <Loading />
       </template>
@@ -43,35 +40,35 @@ const containerClass = computed(() => {
 </template>
 
 <style scoped lang="less">
-.app-j-detail-container {
+.app-j-detail {
+  position: fixed;
   z-index: 9999;
-//   transition: all 0.2s;
+  top: 0;
+  right: 50%;
+  transition: all 0.2s ease-in;
 
-  & .app-j-detail {
-    position: fixed;
-    top: 0;
-    right: 50%;
-    z-index: 9999;
-    // transition: all 0.2s;
-
-    @media (max-width: 768px) {
-      right: 0;
-    }
-
-    &:last-child {
-      right: 0;
-    }
+  &:only-child,
+  &:last-child {
+    right: 0;
   }
 }
 
 .details-move,
-.details-enter-active,
-.details-leave-active {
-  transition: all 0.3s linear;
+.details-leave-active,
+.details-enter-active {
+  transition: all 0.17s ease;
 }
 
-.details-enter-from,
+.details-leave-active:nth-last-child(2) {
+  right: 0;
+}
+
+.details-enter-from {
+  transform: translateX(100%);
+}
+
 .details-leave-to {
+  // 思考中
   transform: translateX(100%);
 }
 </style>
