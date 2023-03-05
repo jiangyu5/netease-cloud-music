@@ -4,7 +4,7 @@
 
 ## 介绍
 
-![](https://img.shields.io/badge/node-v12-blue)![](https://img.shields.io/badge/vue-v3-green)![](https://img.shields.io/badge/bootstrap-v5-blueviolet)
+![](https://img.shields.io/badge/node-v12-blue) ![](https://img.shields.io/badge/vue-v3-green) ![](https://img.shields.io/badge/bootstrap-v5-blueviolet)
 
 - 仅作为练习使用；
 - 没有部署服务器，可通过gif 预览效果，或者下载到本地启动 api；
