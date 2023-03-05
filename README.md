@@ -12,14 +12,15 @@
 
 ## 进度
 
-- 全局右侧显示窗口完善中
+- 不同页的右侧窗口待放入命名 router-view 中
+- 其他页面增加中
 - 组件文件重新管理中
 
 ## 图片预览
 
-![gif1](./assets/imgs/gif1.gif)
-
 ![](./assets/imgs/gif3.gif)
+
+![gif1](./assets/imgs/gif1.gif)
 
 ![gif2](./assets/imgs/gif2.gif)
 

@@ -7,8 +7,8 @@ import AppFooter from "./components/AppFooter/index.vue";
 <template>
   <div class="container-fluid bg-dark text-light">
     <div class="row">
-      <AppNav class="col-md-2 col-lg-1 order-3 order-md-1" />
-      <AppMain class="col-md-10 col-lg-10 order-1 order-md-2" />
+      <AppNav class="col-md-2 order-3 order-md-1" />
+      <AppMain class="col-md-10 order-1 order-md-2" />
       <AppFooter class="order-2 order-md-3" />
     </div>
   </div>
@@ -33,6 +33,14 @@ import AppFooter from "./components/AppFooter/index.vue";
   #app .app-main,
   #app .app-main .app-j-detail {
     height: calc(100vh - var(--app-footer-height));
+  }
+}
+
+// 根据 .app-main 的宽进行调整
+.app-j-detail {
+  width: 100%;
+  @media (min-width: 768px) {
+    width: 41.66%;
   }
 }
 </style>

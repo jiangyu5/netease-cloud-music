@@ -1,6 +1,6 @@
 import axios from "axios";
 import { defineStore } from "pinia";
-import { reactive, watch } from "vue";
+import { nextTick, reactive, watch } from "vue";
 
 export const useDetailStore = defineStore("detailStore", {
   state: () => {
@@ -11,15 +11,32 @@ export const useDetailStore = defineStore("detailStore", {
   getters: {},
   actions: {
     detailsPush(detail, id) {
-      if (this.details.length == 1 && this.details[0].detail == detail) {
+      let length = this.details.length;
+      if (length) {
+        let r = this.details.some((el) => el.detail == detail && el.id == id);
+        if (r) return;
+      }
+
+      if (length == 1 && this.details[0].detail == detail) {
         this.detailReplace({ detail, id }, 0);
         return;
       }
+
       this.details.push({ detail, id });
+      this.details[length].jclass = "enter";
+      if (length != 0) {
+        this.details[length - 1].jclass = "";
+      }
     },
 
     detailsBack() {
-      return this.details.pop();
+      let length = this.details.length;
+      this.details[length - 1].jclass = "leave";
+      if (length > 1) this.details[length - 2].jclass = "static";
+
+      setTimeout(() => {
+        this.details.pop();
+      }, 200);
     },
 
     detailReplace(value, to = 0) {
